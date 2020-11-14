@@ -8,8 +8,8 @@ import fetchGamesGHIN from '../functions/fetchGamesGHIN';
 export default function GamesTable({handicaps}) {
     set('players', handicaps.players);
     set('teesSelected', handicaps.teesSelected)
-    const dataMode = get('dataMode');  
-    fetchGamesGHIN(dataMode);
+    const dataMode = 'ghin';  
+    fetchGamesGHIN(dataMode, handicaps.players);
     
   return(
     <><br/><br/>
