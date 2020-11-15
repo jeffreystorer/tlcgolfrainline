@@ -37,7 +37,8 @@ export default function createGamesTableBodyRows (course, game, games, teesSelec
     let firstName = aPlayer[2];
     let lastName = aPlayer[1];
     gender = aPlayer[4];
-    let player = firstName + ' ' + lastName + ' (' + strHcpIndex + ')';
+    let prefix = "";
+    let player = prefix + firstName + ' ' + lastName + ' (' + strHcpIndex + ')';
     let rowReturn = [player];
     let i;
     for (i=0; i < teesSelectedArray.length; i++){

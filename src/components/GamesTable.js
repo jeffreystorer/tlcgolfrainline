@@ -6,10 +6,10 @@ import {get, set} from '../functions/localStorage';
 import fetchGamesGHIN from '../functions/fetchGamesGHIN';
 
 export default function GamesTable({handicaps}) {
-    set('players', handicaps.players);
-    set('teesSelected', handicaps.teesSelected)
-    const dataMode = 'ghin';  
-    fetchGamesGHIN(dataMode, handicaps.players);
+  set('teesSelected', handicaps.teesSelected)
+  const dataMode = 'ghin';  
+  fetchGamesGHIN(dataMode, handicaps.players);
+  let players = get('players');
     
   return(
     <><br/><br/>
@@ -24,7 +24,8 @@ export default function GamesTable({handicaps}) {
           <GamesTableHeader teesSelected={handicaps.teesSelected} />
         </thead>
         <tbody>
-          <GamesTableBody 
+          <GamesTableBody
+            players={players}
             course={handicaps.course}
             game={handicaps.game}
             games={handicaps.games}

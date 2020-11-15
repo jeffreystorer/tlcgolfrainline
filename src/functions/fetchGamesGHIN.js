@@ -24,16 +24,25 @@ export default function fetchGamesGHIN(dataMode, players) {
       } catch (error){
         item[2] = '';
         item[3] = 'guest'
+        item[5] = "00000"
         return
       };
         item[3] = data[index].golfers[0].Value;
         item[4] = data[index].golfers[0].Gender;
+        item[5] = localNumber(data[index]);
       }
       
       set('players', players);
   }
 
- 
+    const localNumber = (golfer) => {
+      const targetIndex = golfer.golfers.findIndex(item => item.ClubId=== "13961")
+      if (targetIndex > -1) {
+        return golfer.golfers[targetIndex].Local
+      } else {
+        return "00000"
+      }
+    }
 
     function buildRequests(item, index) {
       let ghinNumber = item[0];
