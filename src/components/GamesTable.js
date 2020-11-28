@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import GamesTableHeader from './GamesTableHeader';
 import GamesTableBody from './GamesTableBody';
 import ButtonDownloadScreenShot from './ButtonDownloadScreenshot';
@@ -6,10 +6,15 @@ import {get, set} from '../functions/localStorage';
 import fetchGamesGHIN from '../functions/fetchGamesGHIN';
 
 export default function GamesTable({handicaps}) {
+  const [players, setPlayers] = useState([]);
   set('teesSelected', handicaps.teesSelected)
   const dataMode = 'ghin';  
   fetchGamesGHIN(dataMode, handicaps.players);
-  let players = get('players');
+
+  useEffect(() => {
+  let thePlayers = get('players');
+  setPlayers(thePlayers);   
+  }, [])
     
   return(
     <><br/><br/>
