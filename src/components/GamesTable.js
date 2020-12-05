@@ -4,7 +4,7 @@ import GamesTableBody from "./GamesTableBody"
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
 import { get, set } from "../functions/localStorage"
 import fetchGamesGHIN from "../functions/fetchGamesGHIN"
-import useVisibilityChange from "use-visibility-change"
+//import useVisibilityChange from "use-visibility-change"
 
 export default function GamesTable({ handicaps }) {
   set("teesSelected", handicaps.teesSelected)
@@ -12,10 +12,10 @@ export default function GamesTable({ handicaps }) {
   fetchGamesGHIN(dataMode, handicaps.players)
   const players = get("players")
 
-  const onShow = () => {
+  /*   const onShow = () => {
     window.location.reload()
   }
-  useVisibilityChange({ onShow })
+  useVisibilityChange({ onShow }) */
 
   return (
     <>
