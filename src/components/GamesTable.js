@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import GamesTableHeader from "./GamesTableHeader"
 import GamesTableBody from "./GamesTableBody"
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
@@ -10,6 +10,11 @@ export default function GamesTable({ handicaps }) {
   const dataMode = "ghin"
   fetchGamesGHIN(dataMode, handicaps.players)
   const players = get("players")
+  const [refreshed, setRefreshed] = useState(false)
+
+  useEffect(() => {
+    if (!refreshed) setRefreshed(true)
+  }, [refreshed])
 
   return (
     <>
