@@ -20,17 +20,17 @@ export default function GamesTable({ handicaps }) {
     <>
       <br />
       <br />
-      <table id="games-table">
-        <div id="games-table-div">
+      <table id="games-table" className="background-white">
+        <div id="games-table-div" className="background-white">
           <thead>
-            <tr className="center">
+            <tr className="center background-white">
               <th colSpan={get("teesSelected").length + 1}>
                 {handicaps.game} at {handicaps.course.toUpperCase()}
               </th>
             </tr>
             <GamesTableHeader teesSelected={handicaps.teesSelected} />
           </thead>
-          <tbody>
+          <tbody className="background-white">
             <GamesTableBody
               players={players}
               course={handicaps.course}
