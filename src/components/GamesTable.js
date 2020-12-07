@@ -51,7 +51,7 @@ export default function GamesTable({ handicaps }) {
           game={handicaps.game}
           course={handicaps.course.toUpperCase()}
           element="games-table-div"
-          format="PNG"
+          format="JPEG"
           page="Games"
         />
       </div>
