@@ -7,7 +7,7 @@ import fetchGamesGHIN from "../functions/fetchGamesGHIN"
 
 export default function GamesTable({ handicaps }) {
   set("teesSelected", handicaps.teesSelected)
-  const dataMode = "ghin"
+  const dataMode = "roster"
   fetchGamesGHIN(dataMode, handicaps.players)
   const players = get("players")
   const [refreshed, setRefreshed] = useState(false)
