@@ -3,6 +3,7 @@ import { get } from "../functions/localStorage"
 import setRatingSlopePar from "../functions/setRatingSlopePar"
 
 export default function createGamesTableBodyRows(
+  showFirstName,
   course,
   game,
   games,
@@ -50,7 +51,12 @@ export default function createGamesTableBodyRows(
     let lastName = aPlayer[1]
     gender = aPlayer[4]
     let prefix = ""
-    let player = prefix + firstName + " " + lastName + " (" + strHcpIndex + ")"
+    let player
+    if (showFirstName) {
+      player = prefix + firstName + " " + lastName + " (" + strHcpIndex + ")"
+    } else {
+      player = prefix + lastName + " (" + strHcpIndex + ")"
+    }
     let rowReturn = [player]
     let i
     for (i = 0; i < teesSelectedArray.length; i++) {

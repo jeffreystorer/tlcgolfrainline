@@ -1,8 +1,8 @@
 import React from 'react';
 import createGamesTableBodyRows from '../functions/createGamesTableBodyRows.js';
 
-const GamesTableBody = ({course, game, games, teesSelected, ratings, slopes, pars}) => {  
-  let rows = createGamesTableBodyRows(course, game, games, teesSelected, ratings, slopes, pars);
+const GamesTableBody = ({showFirstName, course, game, games, teesSelected, ratings, slopes, pars}) => {  
+  let rows = createGamesTableBodyRows(showFirstName, course, game, games, teesSelected, ratings, slopes, pars);
   let rowsTD = [];
   let colCount = rows[0].length;
 

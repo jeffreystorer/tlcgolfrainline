@@ -6,11 +6,16 @@ import { get, set } from "../functions/localStorage"
 import fetchGamesGHIN from "../functions/fetchGamesGHIN"
 
 export default function GamesTable({ handicaps }) {
+  const [showFirstName, setShowFirstName] = useState(false)
   set("teesSelected", handicaps.teesSelected)
   const dataMode = "roster"
   fetchGamesGHIN(dataMode, handicaps.players)
   const players = get("players")
   const [refreshed, setRefreshed] = useState(false)
+
+  function handleShowFirstNameChange() {
+    setShowFirstName(!showFirstName)
+  }
 
   useEffect(() => {
     if (!refreshed) setRefreshed(true)
@@ -18,8 +23,16 @@ export default function GamesTable({ handicaps }) {
 
   return (
     <>
-      <br />
-      <br />
+      <div className="center">
+        <input
+          type="checkbox"
+          id="showFirstName"
+          onChange={handleShowFirstNameChange}
+          defaultChecked={showFirstName}
+        ></input>
+        <label htmlFor="showFirstName">Show First Name</label>
+      </div>
+      <br></br>
       <table id="games-table" className="background-white">
         <div id="games-table-div" className="background-white">
           <thead>
@@ -32,6 +45,7 @@ export default function GamesTable({ handicaps }) {
           </thead>
           <tbody className="background-white">
             <GamesTableBody
+              showFirstName={showFirstName}
               players={players}
               course={handicaps.course}
               game={handicaps.game}
