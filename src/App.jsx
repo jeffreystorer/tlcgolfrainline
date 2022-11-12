@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useFetchRainLine from './useFetchRainLinejs';
+import TLGAC from '/TLGAC.png';
 import './App.css';
 
 export default function App() {
@@ -32,17 +33,23 @@ export default function App() {
         <div>Loading data . . . </div>
       ) : (
         <>
-          <h1>The Landings Golf and Athletic Club</h1>
-          <h2>Golf Rain Line Report</h2>
+          <img
+            className='tlgac'
+            alt='The Landings Club'
+            height='auto'
+            src={TLGAC}
+            width='650'></img>
+          <h3>Golf Rain Line Report</h3>
+          <h3>{data[1][0]}</h3>
           <table>
             <thead>
               <tr>
-                <th>Date</th>
                 <th>Open Courses</th>
                 <th>Cart Path</th>
                 <th>Notes</th>
-                <th>Front Range</th>
-                <th>Back Range</th>
+                <th>Front Range Open</th>
+                <th></th>
+                <th>Back Range Open</th>
               </tr>
             </thead>
             <tbody>
@@ -51,12 +58,12 @@ export default function App() {
                 .map((item, index) => {
                   return (
                     <tr key={index}>
-                      <td>{item[0]}</td>
                       <td>{item[1]}</td>
                       <td>{item[3]}</td>
                       <td>{item[4]}</td>
                       <td>{item[5]}</td>
                       <td>{item[6]}</td>
+                      <td>{item[7]}</td>
                     </tr>
                   );
                 })}

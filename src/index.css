@@ -127,3 +127,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.tlgac {
+  border: 0;
+  display: block;
+  outline: none;
+  text-decoration: none;
+  height: auto;
+  width: 100%;
+  font-size: 13px;
+}
