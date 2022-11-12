@@ -24,8 +24,6 @@ export default function App() {
     if (info[1][0]) {
       isAdditionalInfo = true;
     }
-    console.log('😊😊 info', info);
-    console.log('😊😊 data', data);
   }
   return (
     <div className='App'>

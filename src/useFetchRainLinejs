@@ -5,19 +5,20 @@ const useFetchRainLine = (ref) => {
   const [info, setInfo] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const SHEETS_ID = import.meta.env.VITE_ID;
+  const API_KEY = import.meta.env.VITE_KEY;
 
   useEffect(() => {
     if (ref.current) {
       (async () => {
         try {
           const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/1wzUR6VBTeQjWgeG4xJqzJMl6p9mM_g3f-SujkeRZRgs/values/Superintendents'_Submissions?key=AIzaSyDvDUbFJUlEdDIm-zuE_r5-Mg8w7UiPoI0`
+            `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/Superintendents'_Submissions?key=${API_KEY}`
           );
           const result = await response.json();
-          console.log('😊😊 result', result);
           setData(result.values);
           const infoResponse = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/1wzUR6VBTeQjWgeG4xJqzJMl6p9mM_g3f-SujkeRZRgs/values/Additional_Information?key=AIzaSyDvDUbFJUlEdDIm-zuE_r5-Mg8w7UiPoI0`
+            `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/Additional_Information?key=${API_KEY}`
           );
           const infoResult = await infoResponse.json();
           setInfo(infoResult.values);
