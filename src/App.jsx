@@ -54,7 +54,7 @@ export default function App() {
             <thead>
               <tr>
                 <th>Open Courses</th>
-                <th>Cart Path</th>
+                <th>Carts</th>
                 {hasNotes && <th>Notes</th>}
                 <th>Front Range</th>
                 <th>Back Range</th>
