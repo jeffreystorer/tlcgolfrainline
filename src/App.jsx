@@ -25,7 +25,7 @@ export default function App() {
     if (info[1][0]) {
       hasAdditionalInfo = true;
     }
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 7; i++) {
       if (data[i][4]) {
         hasNotes = true;
       }
