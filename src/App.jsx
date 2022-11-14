@@ -16,15 +16,26 @@ export default function App() {
     }
     return 0;
   }
-  let isAdditionalInfo = false;
+  let hasAdditionalInfo = false;
   let displayData;
+  let hasNotes = false;
   if (!loading) {
     displayData = data.filter((item, index) => index > 0);
     displayData.sort(sortCourse);
     if (info[1][0]) {
-      isAdditionalInfo = true;
+      hasAdditionalInfo = true;
+    }
+    for (let i = 1; i < 6; i++) {
+      if (data[i][4]) {
+        hasNotes = true;
+      }
     }
   }
+
+  const yesNo = {
+    Yes: 'Open',
+    No: 'Closed',
+  };
   return (
     <div className='App'>
       {loading ? (
@@ -44,10 +55,9 @@ export default function App() {
               <tr>
                 <th>Open Courses</th>
                 <th>Cart Path</th>
-                <th>Notes</th>
-                <th>Front Range Open</th>
-                <th></th>
-                <th>Back Range Open</th>
+                {hasNotes && <th>Notes</th>}
+                <th>Front Range</th>
+                <th>Back Range</th>
               </tr>
             </thead>
             <tbody>
@@ -58,16 +68,15 @@ export default function App() {
                     <tr key={index}>
                       <td>{item[1]}</td>
                       <td>{item[3]}</td>
-                      <td>{item[4]}</td>
-                      <td>{item[5]}</td>
-                      <td>{item[6]}</td>
-                      <td>{item[7]}</td>
+                      {hasNotes && <td>{item[4]}</td>}
+                      {item[5] === 'Yes' ? <td>{item[6]}</td> : <td>Closed</td>}
+                      <td>{yesNo[item[7]]}</td>
                     </tr>
                   );
                 })}
             </tbody>
           </table>
-          {isAdditionalInfo && (
+          {hasAdditionalInfo && (
             <>
               <h4>Additional Information</h4>
               <textarea readOnly={true} value={info[1][0]} />

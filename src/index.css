@@ -78,8 +78,7 @@ th {
 .td_Open,
 .td_CPO,
 .td_FrontRange,
-.td_BackRange,
-.td_FrostDelay {
+.td_BackRange {
   width: 20px;
 }
 
